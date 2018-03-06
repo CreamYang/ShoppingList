@@ -2,15 +2,15 @@ var shoplist = {};
 shoplist.name = "shoplist";
 shoplist.time = "2018/2/28";
 shoplist.items = [
-  { name: "蔬菜", price: 100 },
-  { name: "牛肉", price: 195 },
-  { name: "香菇", price: 30 },
-  { name: "水餃", price: 80 },
-  { name: "珍珠", price: 50000 }
+  { check: 0, name: "蔬菜", price: 100 },
+  { check: 0, name: "牛肉", price: 195 },
+  { check: 0, name: "香菇", price: 30 },
+  { check: 0, name: "水餃", price: 80 },
+  { check: 0, name: "珍珠", price: 50000 }
 ];
 
 var item_html =
-  "<li id={{id}} class='items'><div class='check' id={{check_id}}>☐</div><div class='item_name'>{{num}}. {{name}}</div><div class='price'>{{price}}</div><button id={{del_id}} data-delid={{del_item_id}} class='delete'>X</button></li>";
+  "<li id={{id}} class='items'><div class='check' id={{check_id}} data-checkid={{check_item_id}}>{{checked}}</div><div class='item_name'>{{num}}. {{name}}</div><div class='price'>{{price}}</div><button id={{del_id}} data-delid={{del_item_id}} class='delete'>X</button></li>";
 
 var total_html =
   "<li class='items total'><div class='item_name'>總價</div><div class='price'>{{price}}</div></li>";
@@ -23,11 +23,19 @@ $(document).ready(function(){
       var item_id = "item_num" + i;
       var check_item_id = "check_num" + i;
       var del_item_id = "del_item_num" + i;
+      var checked_item = "☐";
+      if(item.check==0){
+        checked_item = "☐";
+      }else{
+        checked_item = "☑";
+      }
       total += parseInt(item.price);
       //用replace取代內容
       var temp_item_html = item_html
         .replace("{{id}}", item_id)
         .replace("{{check_id}}", check_item_id)
+        .replace("{{checked}}", checked_item)
+        .replace("{{check_item_id}}", i)
         .replace("{{num}}", i + 1)
         .replace("{{name}}", item.name)
         .replace("{{price}}", item.price)
@@ -40,10 +48,13 @@ $(document).ready(function(){
         removeitem(parseInt($(this).attr("data-delid")));
       });
       $('#' + check_item_id).click(function(){
+        
         if($(this).text()=="☐"){
           $(this).text("☑");
+          shoplist.items[parseInt($(this).attr("data-checkid"))].check=1;
         }else{
           $(this).text("☐");
+          shoplist.items[parseInt($(this).attr("data-checkid"))].check=0;
         }
       });
       
@@ -57,6 +68,10 @@ $(document).ready(function(){
     showlist();
   }
 
+  // function checkitem() {
+  //   shoplist.items.check =
+  // }
+
   showlist();
 
   $(".add").click(function() {
@@ -69,6 +84,7 @@ $(document).ready(function(){
       price=$("#input_price").val();
     }
     shoplist.items.push({
+      check: 0,
       name: $("#input_name").val(),
       price: price
     });
