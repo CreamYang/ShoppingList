@@ -1,0 +1,153 @@
+*{
+  font-family: 微軟正黑體, serif;
+  position: relative;
+  
+}
+html, body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #A5DEE4;
+}
+#list{
+  padding: 10px;
+  background-color: #fdfdfd;
+  border-radius: 20px;
+  box-shadow:4px 4px 12px -2px rgba(20%,20%,40%,0.5);
+}
+#list .circle{
+  position: absolute;
+  height: 35px;
+  width: 5px;
+  top: -15px;
+  background-color: #ddd;
+}
+#list .circle::after{
+  position: absolute;
+  top: 25px;
+  left: -4px;
+  content: "";
+  height: 12px;
+  width: 12px;
+  border-radius: 100%;
+  background-color: #555;
+}
+.circle1{
+  left: 40px;
+}
+.circle2{
+  left: 90px;
+}
+.circle3{
+  left: 140px;
+}
+.circle4{
+  left: 190px;
+}
+.circle5{
+  left: 240px;
+}
+.circle6{
+  left: 290px;
+}
+.circle7{
+  left: 340px;
+}
+.circle8{
+  left: 390px;
+}
+.circle9{
+  left: 440px;
+}
+.circle10{
+  left: 490px;
+}
+#list h1{
+  margin: 30px -10px 10px -10px;
+  padding: 10px;
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 60px;
+  color: #333;
+}
+.bar{
+  width: 540px;
+  height: 45px;
+  display:flex;
+  align-items: center;
+/*   justify-content: center; */
+  background-color: #376B6D;
+  margin: 0px -10px 0px -10px;
+}
+.bar label{
+  margin-left: 10px;
+  color: #FDFDFD;
+}
+.bar input{
+  margin: 3px;
+  padding: 3px;
+  width: 140px;
+}
+.bar .add{
+  position: absolute;
+  left: 450px;
+  width: 90px;
+  margin-left: 10px;
+  border-right: solid 7px #376B6D;
+  color: #FFF;
+  font-size: 50px;
+  line-height: 50px;
+}
+#itemlist{
+  padding: 25px;
+}
+#itemlist .items{
+  list-style: none;
+  border-bottom: dashed 1.5px #376B6D;
+  margin-top: 10px;
+  display: flex;
+  font-weight: 800;
+  color: #222;
+}
+#itemlist .items .check, #itemlist .items .item_name, #itemlist .items .price, #itemlist .items .delete{
+  margin: 3px 10px;
+  padding: 3px;
+}
+#itemlist .items .check{
+  cursor: pointer;
+}
+#itemlist .items .price{
+  position: absolute;
+  right: 40px;
+}
+#itemlist .items .price::before{
+  content:"$";
+}
+#itemlist .items .delete{
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  height: 30px;
+  width: 30px;
+  padding: 1px;
+  background-color: #fff;
+}
+#itemlist .total{
+  color: #D75455;
+}
+button{
+  cursor: pointer;
+  font-size: 20px;
+  border: none;
+  /*   去掉按鈕點擊後的籃框 */
+  outline: none;
+  background-color: #8ddddd;
+}
+button:hover{
+  background-color: #6699A1;
+  color: #ddd;
+}
