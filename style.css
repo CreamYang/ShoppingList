@@ -119,6 +119,7 @@ html, body{
 }
 #itemlist .items .check{
   cursor: pointer;
+  color: #376B6D;
 }
 #itemlist .items .price{
   position: absolute;
@@ -134,7 +135,12 @@ html, body{
   height: 30px;
   width: 30px;
   padding: 1px;
-  background-color: #fff;
+  color: #888;
+  background-color: transparent;
+  font-family: 'Raleway';
+}
+#itemlist .items .delete:hover{
+  color: #ddd;
 }
 #itemlist .total{
   color: #D75455;
