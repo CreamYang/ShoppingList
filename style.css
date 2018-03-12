@@ -8,12 +8,16 @@ html, body{
   padding: 0;
   height: 100%;
   width: 100%;
-  display: flex;
+/*  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center;*/
   background-color: #A5DEE4;
 }
 #list{
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 80px;
+  width: 520px;
   padding: 10px;
   background-color: #fdfdfd;
   border-radius: 20px;

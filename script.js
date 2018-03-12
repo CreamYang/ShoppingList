@@ -46,6 +46,7 @@ $(document).ready(function(){
       //刪除需要先append才能運作，故放這
       $("#" + del_item_id).click(function() {
         removeitem(parseInt($(this).attr("data-delid")));
+        //console.log(parseInt($(this).attr("data-delid")),i,del_item_id);
       });
       $('#' + check_item_id).click(function(){
         
@@ -67,10 +68,6 @@ $(document).ready(function(){
     shoplist.items.splice(id, 1);
     showlist();
   }
-
-  // function checkitem() {
-  //   shoplist.items.check =
-  // }
 
   showlist();
 
